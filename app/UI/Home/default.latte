@@ -1,0 +1,34 @@
+{block content}
+
+<h1>Tabulka nabídek</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Zákazník</th>
+            <th>Nabídka</th>
+            <th>Termín</th>
+            <th>Částka</th>
+            <th>Stav</th>
+            <th>Popis</th>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $data as $radek}
+        <tr>
+            <td>{$radek->name}</td>
+            <td>{$radek->offer}</td>
+            <td>{$radek->close_date|date:'d.m.Y'}</td>
+            <td>{$radek->amount|number:0, ' '}&nbsp;Kč</td>
+            <td>{$radek->status}</td>
+            <td>{$radek->description}</td>
+        </tr>
+        {/foreach}
+    </tbody>
+</table>
+    
+<p>
+    <a href="{link Vlozeni:default}" class="button">Nahrani souboru</a>
+</p>
+        
+{/block}
